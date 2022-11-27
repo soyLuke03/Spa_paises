@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SpaServiceService } from '../../services/spa-service.service';
 
 @Component({
   selector: 'app-ver-pais',
-  templateUrl: './ver-pais.component.html',
-  styleUrls: ['./ver-pais.component.css']
+  templateUrl: './ver-pais.component.html'
 })
 export class VerPaisComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private spaService:SpaServiceService) {
+  constructor(private route: ActivatedRoute) { 
     console.log(route.snapshot.params['id']);
   }
-
-
 
   ngOnInit(): void {
   }

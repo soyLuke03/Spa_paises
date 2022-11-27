@@ -1,22 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { SpaServiceService } from '../../services/spa-service.service';
+import { PaisService } from '../../services/pais.service';
+import { Pais } from '../../interfaces/pais.interface';
 
 @Component({
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html'
 })
-export class PorPaisComponent implements OnInit {
+export class PorPaisComponent {
 
-  textoEntrada:string = " ";
+  pais: string = '';
 
-  constructor(private spaService:SpaServiceService) { }
-
-  ngOnInit(): void {
+  constructor(private paisService: PaisService) {
+    
   }
 
-  addTexto(texto:string){
-    this.spaService.buscarPais(texto)
-    this.textoEntrada = ""
+  get paises(): Pais[] {
+    return this.paisService.countries;
+
+  }
+
+  encontrarPaises(name: string): void {
+    this.paisService.encontrarPais(name);
   }
 
 }
