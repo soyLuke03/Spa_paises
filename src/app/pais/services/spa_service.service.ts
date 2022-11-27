@@ -17,7 +17,9 @@ export class PaisService {
   }
 
   encontrarPais(countryName: string): void {
-    this.http.get<Pais[]>(`${this.url}name/${countryName}`)
+
+    this.http.get<Pais[]>(this.url + "name/" + countryName)
+    
     .subscribe( resp => this._countries = resp);
   }
 }
