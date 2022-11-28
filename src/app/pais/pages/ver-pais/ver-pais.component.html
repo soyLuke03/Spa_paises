@@ -1,1 +1,59 @@
-<p>ver-pais works!</p>
+<!-- Este div se mostrará si no se ha cargado todavía el país -->
+<div class="alert alert-info">
+    Espere por favor...
+</div>
+
+
+
+<!-- Todo lo siguiente se mostrará cuando se haya cargado el páis-->
+
+<div>
+    <div class="row">
+        <div class="col-12">
+            <h1>País: <small>{{ pais.name.common }}</small></h1>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img [src]="pais.flags.png" class="img-thumbnail" />
+        </div>
+
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Población: {{ pais.population }}</strong> 
+                </li>
+                <li class="list-group-item">
+                    <strong>Código numérico: {{ pais.ccn3 }}</strong> 
+                </li>
+                <li class="list-group-item">
+                    <strong>Código alpha3: {{ pais.cca3 }}</strong> 
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+    <h3>Traducciones</h3>
+    <div class="row">
+        <div class="col">
+
+            <span class="badge bg-primary mr-1">{{ pais.translations['de'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['es'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['fr'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['ja'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['it'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['br'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['pt'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['nl'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['hr'].common }}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations['fa'].common }}</span>
+
+        </div>
+    </div>
+</div>

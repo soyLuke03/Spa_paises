@@ -1,10 +1,14 @@
 <h3>Por pais</h3>
 <hr>
-<form (ngSubmit)="encontrarPaises(pais)">
-    <input type="text" id="pais" name="pais" [(ngModel)]="pais">
+<form (ngSubmit)="buscar(pais)">
+    <input type="text" id="pais" name="pais" [(ngModel)]="pais" class="form-control">
 </form>
 <hr>
+    <div *ngIf="error.length!=0" class="alert alert-danger">
+        No se encontró nada con el término {{ error }}
+    </div>
 <table class="table table-hover">
+    
     <thead>
         <tr>
             <th> # </th>
@@ -23,7 +27,7 @@
             <td> {{ pais.capital }}, {{ pais.name.common }} </td> <!-- La capital, el nombre del país y la población lo obtendremos de la api -->
             <td> {{ pais.population }} </td>
             <td>
-                <a >Ver...</a> <!-- Esto lo dejamos así de momento -->
+                <a [routerLink]="['/pais',pais.cca2]" >Ver...</a> <!-- Esto lo dejamos así de momento -->
             </td>
         </tr>
     </tbody>

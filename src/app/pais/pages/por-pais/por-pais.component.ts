@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PaisService } from '../../services/spa_service.service';
+import { PaisService } from '../../services/paisService.service';
 import { Pais } from '../../interfaces/pais.interface';
 
 @Component({
@@ -9,18 +9,33 @@ import { Pais } from '../../interfaces/pais.interface';
 export class PorPaisComponent {
 
   pais: string = '';
+  termino: string  = "";
+  paises: Pais[] = [];
+  error:string = "";
 
   constructor(private paisService: PaisService) {
     
   }
 
-  get paises(): Pais[] {
-    return this.paisService.countries;
-
-  }
 
   encontrarPaises(name: string): void {
-    this.paisService.encontrarPais(name);
+    this.paisService.encontrarPaises(name);
+  }
+
+
+  buscar( termino:string):void {
+    this.termino=termino;
+    this.paisService.encontrarPaises(termino)
+    .subscribe({
+      next: (resp) => {
+        this.paises = resp;
+        this.error="";
+      },
+      error: () => {
+        this.error=this.pais;
+      }
+    }
+    )
   }
 
 }
