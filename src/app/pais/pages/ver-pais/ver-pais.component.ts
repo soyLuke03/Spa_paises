@@ -9,10 +9,10 @@ import { Pais } from '../../interfaces/pais.interface';
   templateUrl: './ver-pais.component.html'
 })
 export class VerPaisComponent implements OnInit {
+  _paises: Pais[] = [];
+  error: boolean = false;
 
-  pais!: Pais;
-  termino: string = '';
-  paises!: Pais[];
+
 
   constructor(private route: ActivatedRoute, private paisService: PaisService) { 
     console.log(route.snapshot.params['id']);
@@ -20,22 +20,26 @@ export class VerPaisComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.buscar(this.route.snapshot.params['id'])
-    this.pais =this.paises[0]
+    this.buscar();
   }
 
-  buscar( termino:string):void {
-    this.termino=termino;
-    this.paisService.encontrarAlpha(termino)
+  get pais():Pais {
+    return this._paises[0]
+  }
+
+  buscar():void {
+    this.paisService.encontrarPaises(this.route.snapshot.params['id'])
     .subscribe({
       next: (resp) => {
-        this.paises = resp;
+        this._paises = resp;
+        this.error=false;
       },
       error: () => {
-
+        this.error=true;
       }
     }
     )
   }
+
 
 }
