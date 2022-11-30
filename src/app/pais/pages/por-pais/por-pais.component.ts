@@ -25,6 +25,7 @@ export class PorPaisComponent {
 
   buscar( termino:string):void {
     this.termino=termino;
+    const aux = this.pais;
     this.paisService.encontrarPaises(termino)
     .subscribe({
       next: (resp) => {
@@ -32,10 +33,12 @@ export class PorPaisComponent {
         this.error="";
       },
       error: () => {
-        this.error=this.pais;
+        this.paises = []
+        this.error=aux;
       }
     }
     )
+    this.pais=""
   }
 
 }

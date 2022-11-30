@@ -26,9 +26,10 @@ export class VerPaisComponent implements OnInit {
   get pais():Pais {
     return this._paises[0]
   }
+  
 
   buscar():void {
-    this.paisService.encontrarPaises(this.route.snapshot.params['id'])
+    this.paisService.encontrarAlpha(this.route.snapshot.params['id'])
     .subscribe({
       next: (resp) => {
         this._paises = resp;
