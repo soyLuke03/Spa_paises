@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Pais } from '../../interfaces/pais.interface';
 import { ActivatedRoute } from '@angular/router';
 import { PaisService } from '../../services/paisService.service';
-import { Pais } from '../../interfaces/pais.interface';
-
 
 @Component({
-  selector: 'app-ver-pais',
-  templateUrl: './ver-pais.component.html'
+  selector: 'app-table',
+  templateUrl: './table.component.html'
 })
-export class VerPaisComponent implements OnInit {
+export class TableComponent implements OnInit {
+
   _paises: Pais[] = [];
   error: boolean = false;
 
@@ -41,6 +41,4 @@ export class VerPaisComponent implements OnInit {
     }
     )
   }
-
-
 }

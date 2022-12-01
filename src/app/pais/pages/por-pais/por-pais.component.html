@@ -1,8 +1,6 @@
 <h3>Por pais</h3>
 <hr>
-<form (ngSubmit)="buscar(pais)">
-    <input placeholder="Search country..." type="text" id="pais" name="pais" [(ngModel)]="pais" class="form-control">
-</form>
+<app-search></app-search>
 <hr>
     <div *ngIf="error.length!=0" class="alert alert-danger">
         No se encontró nada con el término {{ error }}

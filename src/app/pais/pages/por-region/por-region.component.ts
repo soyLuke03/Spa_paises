@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RegionService } from '../../services/regionService.service';
 import { Pais } from '../../interfaces/pais.interface';
+import { PaisService } from '../../services/paisService.service';
 
 @Component({
   selector: 'app-por-region',
@@ -8,7 +8,7 @@ import { Pais } from '../../interfaces/pais.interface';
 })
 export class PorRegionComponent implements OnInit {
 
-  constructor(private regionService:RegionService) { }
+  constructor(private regionService:PaisService) { }
 
   region: string = '';
   termino: string  = "";

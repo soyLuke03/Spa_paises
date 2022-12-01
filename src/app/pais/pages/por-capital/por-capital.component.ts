@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CapitalService } from '../../services/capitalService.service';
 import { Pais } from '../../interfaces/pais.interface';
+import { PaisService } from '../../services/paisService.service';
 
 @Component({
   selector: 'app-por-capital',
@@ -13,7 +13,7 @@ export class PorCapitalComponent implements OnInit {
   paises: Pais[] = [];
   error:string = "";
 
-  constructor(private capitalService: CapitalService) { }
+  constructor(private capitalService: PaisService) { }
 
   ngOnInit(): void {
   }

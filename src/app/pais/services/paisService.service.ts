@@ -22,6 +22,14 @@ export class PaisService {
     return this.http.get<Pais[]>(this.url + "name/" + countryName)
   }
 
+  encontrarCapital(capitalName: string): Observable<Pais[]> {
+    return this.http.get<Pais[]>(this.url + "capital/" + capitalName)
+  }
+
+  encontrarRegion(regionName: string): Observable<Pais[]> {
+    return this.http.get<Pais[]>(this.url + "region/" + regionName)
+  }
+
   encontrarAlpha(countryName: string): Observable<Pais[]> {
     return this.http.get<Pais[]>(this.url + "alpha/" + countryName)
   }
