@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PaisService } from '../../services/paisService.service';
 import { Pais } from '../../interfaces/pais.interface';
+import { CapitalService } from '../../services/capitalService.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class VerPaisComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute, private paisService: PaisService) { 
+  constructor(private route: ActivatedRoute,private capitalService:CapitalService , private paisService: PaisService) { 
     console.log(route.snapshot.params['id']);
     
   }
