@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Pais } from '../../interfaces/pais.interface';
 import { ActivatedRoute } from '@angular/router';
 import { PaisService } from '../../services/paisService.service';
@@ -9,7 +9,7 @@ import { PaisService } from '../../services/paisService.service';
 })
 export class TableComponent implements OnInit {
 
-  _paises: Pais[] = [];
+  @Input() _paises: Pais[] = [];
   error: boolean = false;
 
 

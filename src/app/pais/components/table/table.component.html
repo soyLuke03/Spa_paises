@@ -1,49 +1,26 @@
-<div>
-    <div class="row">
-        <div class="col-12">
-            <h1>País: <small>{{ pais.name.common }}</small></h1>
-        </div>
-    </div>
 
-    <div class="row">
-
-        <div class="col-4">
-            <h3>Bandera</h3>
-            <img [src]="pais.flags.png" class="img-thumbnail" />
-        </div>
-
-        <div class="col">
-            <h3>Información</h3>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <strong>Población: {{ pais.population }}</strong> 
-                </li>
-                <li class="list-group-item">
-                    <strong>Código numérico: {{ pais.ccn3 }}</strong> 
-                </li>
-                <li class="list-group-item">
-                    <strong>Código alpha3: {{ pais.cca3 }}</strong> 
-                </li>
-            </ul>
-        </div>
-
-
-    </div>
-
-    <h3>Traducciones</h3>
-    <div class="row">
-        <div class="col">
-
-            <span class="badge bg-primary mr-1">{{ pais.translations['deu'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ pais.translations['spa'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ pais.translations['fra'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ pais.translations['jpn'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ pais.translations['ita'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ pais.translations['bre'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ pais.translations['por'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ pais.translations['nld'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ pais.translations['hrv'].common }}</span>
-            <span class="badge bg-primary mr-1">{{ pais.translations['fin'].common }}</span>
-        </div>
-    </div>
-</div>
+<table *ngIf="_paises.length>0" class="table table-hover">
+    
+    <thead>
+        <tr>
+            <th> # </th>
+            <th> Bandera </th>
+            <th> Nombre </th>
+            <th> Población </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pais of _paises; let i=index"> <!-- Esto es lo que tenemos que repetir por cada país que encuentre -->
+            <td> {{ i + 1 }} </td> <!-- Aquí obtendremos el número de resultado -->
+            <td>
+                <img class="small-flag" [src]="pais.flags.png" > <!-- Aquí obtendremos la url de la bandera --> 
+            </td>
+            <td> {{ pais.capital }}, {{ pais.name.common }} </td> <!-- La capital, el nombre del país y la población lo obtendremos de la api -->
+            <td> {{ pais.population|number }} </td>
+            <td>
+                <a [routerLink]="['/pais',pais.cca2]" >Ver...</a> <!-- Esto lo dejamos así de momento -->
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -11,7 +11,7 @@ export class PorCapitalComponent implements OnInit {
   capital: string = '';
   termino: string  = "";
   paises: Pais[] = [];
-  error:string = "";
+  error:boolean = false;
 
   constructor(private capitalService: PaisService) { }
 
@@ -25,16 +25,15 @@ export class PorCapitalComponent implements OnInit {
 
   buscar( termino:string):void {
     this.termino=termino;
-    const aux = this.capital;
     this.capitalService.encontrarCapital(termino)
     .subscribe({
       next: (resp) => {
         this.paises = resp;
-        this.error="";
+        this.error=false;
       },
-      error: () => {
+      error: (error) => {
+        this.error=true;
         this.paises = []
-        this.error=aux;
       }
     }
     )

@@ -3,15 +3,15 @@
 </h3>
 <hr/>
 <ul class="list-group">
-    <li class="list-group-item">
-        <a href="/pais">Buscar país</a>
+    <li class="list-group-item" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
+        Buscar país
     </li>
 
-    <li class="list-group-item">
-        <a href="/region">Por región</a>
+    <li class="list-group-item" [routerLink]="['/region']" routerLinkActive="active">
+        Por región
     </li>
 
-    <li class="list-group-item">
-        <a href="/capital">Por capital</a>
+    <li class="list-group-item" [routerLink]="['/capital']" routerLinkActive="active">
+        Por capital
     </li>
 </ul>

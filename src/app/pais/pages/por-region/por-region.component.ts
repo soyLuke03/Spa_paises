@@ -13,7 +13,7 @@ export class PorRegionComponent implements OnInit {
   region: string = '';
   termino: string  = "";
   paises: Pais[] = [];
-  error:string = "";
+  error:boolean = false;
 
   ngOnInit(): void {
   }
@@ -30,11 +30,11 @@ export class PorRegionComponent implements OnInit {
     .subscribe({
       next: (resp) => {
         this.paises = resp;
-        this.error="";
+        this.error=false;
       },
-      error: () => {
+      error: (error) => {
+        this.error=true;
         this.paises = []
-        this.error=aux;
       }
     }
     )
